@@ -105,7 +105,7 @@
       "submit": "Đăng ký",
       "footerLoginPrompt": "Bạn đã có tài khoản?",
       "footerLoginLink": "Đăng nhập",
-      "successTitle": "Tài khoản của bạn đã sẵn sàng",
+      "successTitle": "Tài khoản của bạn đã sản sàng",
       "successDescription": "Bây giờ bạn có thể đăng nhập và tiếp tục thiết lập trải nghiệm nghe nhạc của mình.",
       "successButton": "Đi tới trang chủ",
       "recaptchaPrefix": "Trang này được bảo vệ bởi reCAPTCHA và Google",
@@ -115,13 +115,41 @@
       "recaptchaSuffix": "áp dụng."
     },
     "login": {
-      "title": "Đăng nhập vào Spotify",
-      "description": "Dùng tài khoản bạn đã tạo để tiếp tục.",
-      "emailLabel": "Địa chỉ email",
+      "introTitle": "Chào mừng bạn quay trở lại",
+      "introSubtitle": "Nhập email để tiếp tục.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "",
+      "introNext": "Tiếp tục",
+      "introOr": "hoặc",
+      "introPhone": "Tiếp tục bằng số điện thoại",
+      "introGoogle": "Tiếp tục bằng Google",
+      "introFacebook": "Tiếp tục bằng Facebook",
+      "introRegisterPrompt": "Bạn chưa có tài khoản?",
+      "introRegisterLink": "Đăng ký",
+      "otpTitlePrefix": "Nhập mã gồm 6 chữ số mà bạn nhận được qua địa chỉ",
+      "otpTitleSuffix": ".",
+      "otpResend": "Gửi lại mã",
+      "otpSubmit": "Đăng nhập",
+      "otpPasswordLink": "Đăng nhập bằng mật khẩu",
+      "passwordTitle": "Đăng nhập bằng mật khẩu",
+      "passwordDescription": "Sử dụng email và mật khẩu của bạn.",
+      "passwordEmailLabel": "Email",
       "passwordLabel": "Mật khẩu",
-      "submit": "Đăng nhập",
-      "registerPrompt": "Chưa có tài khoản?",
-      "registerLink": "Đăng ký"
+      "passwordPlaceholder": "Nhập mật khẩu của bạn",
+      "passwordSubmit": "Đăng nhập",
+      "passwordlessLink": "Đăng nhập không cần mật khẩu",
+      "errors": {
+        "emailRequired": "Vui lòng nhập email của bạn.",
+        "emailInvalid": "Email phải là địa chỉ Gmail hợp lệ.",
+        "otpRequired": "Vui lòng nhập mã xác thực.",
+        "otpInvalid": "Mã xác thực phải gồm 6 chữ số.",
+        "passwordRequired": "Vui lòng nhập mật khẩu của bạn."
+      },
+      "recaptchaPrefix": "Trang này được bảo vệ bởi reCAPTCHA và Google",
+      "recaptchaPrivacyLink": "Chính sách Quyền riêng tư",
+      "recaptchaAnd": "và",
+      "recaptchaTermsLink": "Điều khoản Dịch vụ",
+      "recaptchaSuffix": "áp dụng."
     }
   }
 }
