@@ -21,7 +21,11 @@
       "en": "English",
       "vi": "Vietnamese"
     },
-    "tabs": ["All", "Music", "Podcasts"],
+    "tabs": [
+      "All",
+      "Music",
+      "Podcasts"
+    ],
     "trendingTitle": "Trending songs",
     "artistsTitle": "Popular artists",
     "showAll": "Show all",
@@ -47,5 +51,77 @@
         "cta": "Browse podcasts"
       }
     ]
+  },
+  "auth": {
+    "register": {
+      "introTitle": "Sign up to start listening",
+      "introSubtitle": "Create your account in a few simple steps.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "name@gmail.com",
+      "introNext": "Next",
+      "introOr": "or",
+      "introPhone": "Sign up with phone number",
+      "introGoogle": "Sign up with Google",
+      "introApple": "Sign up with Apple",
+      "passwordTitle": "Create a password",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "passwordHintTitle": "Your password must contain at least",
+      "passwordHints": [
+        "1 letter",
+        "1 number or special character (e.g. # ? ! &)",
+        "10 characters"
+      ],
+      "continue": "Next",
+      "back": "Back",
+      "profileTitle": "Tell us about yourself",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your profile name",
+      "nameHint": "This name will appear on your profile",
+      "birthLabel": "Date of birth",
+      "birthHint": "Why do we need your date of birth? Learn more.",
+      "dayPlaceholder": "Day",
+      "monthPlaceholder": "Month",
+      "yearPlaceholder": "Year",
+      "genderLabel": "Gender",
+      "genderHint": "Your gender helps us provide personalized content and ads.",
+      "genderOptions": {
+        "male": "Male",
+        "female": "Female",
+        "nonBinary": "Non-binary",
+        "other": "Other",
+        "preferNotSay": "Prefer not to say"
+      },
+      "termsTitle": "Terms & conditions",
+      "marketingOptOutLabel": "I do not want to receive marketing messages from Spotify",
+      "shareDataLabel": "Share my registration data with Spotify content providers for marketing purposes.",
+      "termsParagraphOne": "Spotify is a personalized service.",
+      "termsParagraphTwo": "By clicking Sign up, you agree to Spotify's",
+      "termsParagraphThree": "By clicking Sign up, you acknowledge that you have read our",
+      "termsLink": "Terms and Conditions of Use",
+      "privacyLink": "Privacy Policy",
+      "submit": "Sign up",
+      "footerLoginPrompt": "Already have an account?",
+      "footerLoginLink": "Log in",
+      "successTitle": "Your account is ready",
+      "successDescription": "You can now log in and continue setting up your listening experience.",
+      "successButton": "Go to home",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "recaptchaPrefix": "This site is protected by reCAPTCHA and the Google",
+      "recaptchaPrivacyLink": "Privacy Policy",
+      "recaptchaAnd": "and",
+      "recaptchaTermsLink": "Terms of Service",
+      "recaptchaSuffix": "apply."
+    },
+    "login": {
+      "title": "Log in to Spotify",
+      "description": "Use the account you created to continue.",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "submit": "Log in",
+      "registerPrompt": "Don't have an account?",
+      "registerLink": "Sign up"
+    }
   }
 }

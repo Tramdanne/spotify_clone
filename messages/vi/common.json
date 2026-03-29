@@ -21,7 +21,11 @@
       "en": "English",
       "vi": "Tiếng Việt"
     },
-    "tabs": ["Tất cả", "Âm nhạc", "Podcast"],
+    "tabs": [
+      "Tất cả",
+      "Âm nhạc",
+      "Podcast"
+    ],
     "trendingTitle": "Những bài hát thịnh hành",
     "artistsTitle": "Nghệ sĩ phổ biến",
     "showAll": "Hiện tất cả",
@@ -47,5 +51,77 @@
         "cta": "Duyệt podcast"
       }
     ]
+  },
+  "auth": {
+    "register": {
+      "introTitle": "Đăng ký để bắt đầu nghe",
+      "introSubtitle": "Tạo tài khoản của bạn chỉ trong vài bước đơn giản.",
+      "emailLabel": "Địa chỉ email",
+      "emailPlaceholder": "name@gmail.com",
+      "introNext": "Tiếp theo",
+      "introOr": "hoặc",
+      "introPhone": "Đăng ký bằng số điện thoại",
+      "introGoogle": "Đăng ký bằng Google",
+      "introApple": "Đăng ký bằng Apple",
+      "passwordTitle": "Tạo mật khẩu",
+      "passwordLabel": "Mật khẩu",
+      "passwordPlaceholder": "Nhập mật khẩu của bạn",
+      "passwordHintTitle": "Mật khẩu của bạn phải có ít nhất",
+      "passwordHints": [
+        "1 chữ cái",
+        "1 chữ số hoặc ký tự đặc biệt (ví dụ: # ? ! &)",
+        "10 ký tự"
+      ],
+      "continue": "Tiếp theo",
+      "back": "Quay lại",
+      "showPassword": "Hiện mật khẩu",
+      "hidePassword": "Ẩn mật khẩu",
+      "profileTitle": "Giới thiệu thông tin về bản thân bạn",
+      "nameLabel": "Tên",
+      "namePlaceholder": "Tên hiển thị trên hồ sơ của bạn",
+      "nameHint": "Tên này sẽ xuất hiện trên hồ sơ của bạn",
+      "birthLabel": "Ngày sinh",
+      "birthHint": "Tại sao chúng tôi cần biết ngày sinh của bạn? Tìm hiểu thêm.",
+      "dayPlaceholder": "Ngày",
+      "monthPlaceholder": "Tháng",
+      "yearPlaceholder": "Năm",
+      "genderLabel": "Giới tính",
+      "genderHint": "Giới tính của bạn giúp chúng tôi cung cấp nội dung đề xuất và quảng cáo phù hợp với bạn.",
+      "genderOptions": {
+        "male": "Nam",
+        "female": "Nữ",
+        "nonBinary": "Phi nhị giới",
+        "other": "Giới tính khác",
+        "preferNotSay": "Không muốn nêu cụ thể"
+      },
+      "termsTitle": "Điều khoản & Điều kiện",
+      "marketingOptOutLabel": "Tôi không muốn nhận tin nhắn tiếp thị từ Spotify",
+      "shareDataLabel": "Chia sẻ dữ liệu đăng ký của tôi với các nhà cung cấp nội dung của Spotify cho mục đích tiếp thị.",
+      "termsParagraphOne": "Spotify là một dịch vụ được cá nhân hóa.",
+      "termsParagraphTwo": "Bằng việc nhấp vào nút Đăng ký, bạn đồng ý với",
+      "termsParagraphThree": "Bằng cách nhấp vào nút Đăng ký, bạn xác nhận đã đọc thông tin về cách chúng tôi xử lý dữ liệu cá nhân của bạn trong",
+      "termsLink": "Điều khoản và điều kiện sử dụng của Spotify",
+      "privacyLink": "Chính sách quyền riêng tư của chúng tôi",
+      "submit": "Đăng ký",
+      "footerLoginPrompt": "Bạn đã có tài khoản?",
+      "footerLoginLink": "Đăng nhập",
+      "successTitle": "Tài khoản của bạn đã sẵn sàng",
+      "successDescription": "Bây giờ bạn có thể đăng nhập và tiếp tục thiết lập trải nghiệm nghe nhạc của mình.",
+      "successButton": "Đi tới trang chủ",
+      "recaptchaPrefix": "Trang này được bảo vệ bởi reCAPTCHA và Google",
+      "recaptchaPrivacyLink": "Chính sách Quyền riêng tư",
+      "recaptchaAnd": "và",
+      "recaptchaTermsLink": "Điều khoản Dịch vụ",
+      "recaptchaSuffix": "áp dụng."
+    },
+    "login": {
+      "title": "Đăng nhập vào Spotify",
+      "description": "Dùng tài khoản bạn đã tạo để tiếp tục.",
+      "emailLabel": "Địa chỉ email",
+      "passwordLabel": "Mật khẩu",
+      "submit": "Đăng nhập",
+      "registerPrompt": "Chưa có tài khoản?",
+      "registerLink": "Đăng ký"
+    }
   }
 }
