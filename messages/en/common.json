@@ -1,0 +1,51 @@
+{
+  "heading": "To get started, edit the page.tsx file.",
+  "description": "This is a basic i18n setup for Next.js App Router with locale-based routing.",
+  "deploy": "Deploy Now",
+  "docs": "Documentation",
+  "switchLanguage": "Switch language",
+  "shell": {
+    "topbarAriaLabel": "Spotify home",
+    "searchPlaceholder": "What do you want to play?",
+    "searchAriaLabel": "Search content",
+    "premium": "Premium",
+    "support": "Support",
+    "download": "Download",
+    "installApp": "Install App",
+    "signUp": "Sign up",
+    "logIn": "Log in",
+    "library": "Your Library",
+    "create": "Create",
+    "switchTo": "Switch to",
+    "languageChoices": {
+      "en": "English",
+      "vi": "Vietnamese"
+    },
+    "tabs": ["All", "Music", "Podcasts"],
+    "trendingTitle": "Trending songs",
+    "artistsTitle": "Popular artists",
+    "showAll": "Show all",
+    "footerLinks": [
+      "Legal",
+      "Safety & Privacy Center",
+      "Privacy Policy",
+      "Cookies",
+      "About Ads",
+      "Accessibility"
+    ],
+    "promos": [
+      {
+        "id": "playlist",
+        "title": "Create your first playlist",
+        "description": "It's easy, we'll help you",
+        "cta": "Create playlist"
+      },
+      {
+        "id": "podcast",
+        "title": "Let's find some podcasts to follow",
+        "description": "We'll keep you updated on new episodes",
+        "cta": "Browse podcasts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "heading": "Để bắt đầu, hãy chỉnh sửa file page.tsx.",
+  "description": "Đây là cấu hình i18n cơ bản cho Next.js App Router theo route ngôn ngữ.",
+  "deploy": "Triển khai ngay",
+  "docs": "Tài liệu",
+  "switchLanguage": "Chuyển ngôn ngữ",
+  "shell": {
+    "topbarAriaLabel": "Trang chủ Spotify",
+    "searchPlaceholder": "Bạn muốn phát nội dung gì?",
+    "searchAriaLabel": "Tìm kiếm nội dung",
+    "premium": "Premium",
+    "support": "Hỗ trợ",
+    "download": "Tải xuống",
+    "installApp": "Cài đặt ứng dụng",
+    "signUp": "Đăng ký",
+    "logIn": "Đăng nhập",
+    "library": "Thư viện",
+    "create": "Tạo",
+    "switchTo": "Chuyển sang",
+    "languageChoices": {
+      "en": "English",
+      "vi": "Tiếng Việt"
+    },
+    "tabs": ["Tất cả", "Âm nhạc", "Podcast"],
+    "trendingTitle": "Những bài hát thịnh hành",
+    "artistsTitle": "Nghệ sĩ phổ biến",
+    "showAll": "Hiện tất cả",
+    "footerLinks": [
+      "Pháp lý",
+      "Trung tâm an toàn và quyền riêng tư",
+      "Chính sách quyền riêng tư",
+      "Cookie",
+      "Giới thiệu Quảng cáo",
+      "Hỗ trợ tiếp cận"
+    ],
+    "promos": [
+      {
+        "id": "playlist",
+        "title": "Tạo danh sách phát đầu tiên của bạn",
+        "description": "Rất dễ! Chúng tôi sẽ giúp bạn",
+        "cta": "Tạo danh sách phát"
+      },
+      {
+        "id": "podcast",
+        "title": "Hãy cùng tìm và theo dõi một số podcast",
+        "description": "Chúng tôi sẽ cập nhật cho bạn thông tin về các tập mới",
+        "cta": "Duyệt podcast"
+      }
+    ]
+  }
+}
