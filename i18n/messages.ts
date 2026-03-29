@@ -1,31 +1,49 @@
 import type { Locale } from "@/i18n/config";
+import enCommon from "@/messages/en/common.json";
+import viCommon from "@/messages/vi/common.json";
 
-type Messages = {
+type PromoMessage = {
+  id: string;
+  title: string;
+  description: string;
+  cta: string;
+};
+
+type ShellMessages = {
+  topbarAriaLabel: string;
+  searchPlaceholder: string;
+  searchAriaLabel: string;
+  premium: string;
+  support: string;
+  download: string;
+  installApp: string;
+  signUp: string;
+  logIn: string;
+  library: string;
+  create: string;
+  switchTo: string;
+  languageChoices: Record<Locale, string>;
+  tabs: readonly string[];
+  trendingTitle: string;
+  artistsTitle: string;
+  showAll: string;
+  footerLinks: readonly string[];
+  promos: readonly PromoMessage[];
+};
+
+export type Messages = {
   heading: string;
   description: string;
   deploy: string;
   docs: string;
   switchLanguage: string;
+  shell: ShellMessages;
 };
 
-const messages: Record<Locale, Messages> = {
-  en: {
-    heading: "To get started, edit the page.tsx file.",
-    description:
-      "This is a basic i18n setup for Next.js App Router with locale-based routing.",
-    deploy: "Deploy Now",
-    docs: "Documentation",
-    switchLanguage: "Switch language",
-  },
-  vi: {
-    heading: "Để bắt đầu, hãy chỉnh sửa file page.tsx.",
-    description:
-      "Đây là cấu hình i18n cơ bản cho Next.js App Router theo route ngôn ngữ.",
-    deploy: "Triển khai ngay",
-    docs: "Tài liệu",
-    switchLanguage: "Chuyển ngôn ngữ",
-  },
-};
+const messages = {
+  en: enCommon,
+  vi: viCommon,
+} satisfies Record<Locale, Messages>;
 
 export function getMessages(locale: Locale): Messages {
   return messages[locale];
