@@ -115,13 +115,41 @@
       "recaptchaSuffix": "apply."
     },
     "login": {
-      "title": "Log in to Spotify",
-      "description": "Use the account you created to continue.",
-      "emailLabel": "Email address",
+      "introTitle": "Welcome back",
+      "introSubtitle": "Enter your email to continue.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "",
+      "introNext": "Continue",
+      "introOr": "or",
+      "introPhone": "Continue with phone number",
+      "introGoogle": "Continue with Google",
+      "introFacebook": "Continue with Facebook",
+      "introRegisterPrompt": "Don't have an account?",
+      "introRegisterLink": "Sign up",
+      "otpTitlePrefix": "Enter the 6-digit code sent to",
+      "otpTitleSuffix": ".",
+      "otpResend": "Resend code",
+      "otpSubmit": "Log in",
+      "otpPasswordLink": "Log in with password",
+      "passwordTitle": "Log in with password",
+      "passwordDescription": "Use your email and password to continue.",
+      "passwordEmailLabel": "Email",
       "passwordLabel": "Password",
-      "submit": "Log in",
-      "registerPrompt": "Don't have an account?",
-      "registerLink": "Sign up"
+      "passwordPlaceholder": "Enter your password",
+      "passwordSubmit": "Log in",
+      "passwordlessLink": "Log in without password",
+      "errors": {
+        "emailRequired": "Please enter your email.",
+        "emailInvalid": "Please enter a valid Gmail address.",
+        "otpRequired": "Please enter the verification code.",
+        "otpInvalid": "The verification code must contain 6 digits.",
+        "passwordRequired": "Please enter your password."
+      },
+      "recaptchaPrefix": "This site is protected by reCAPTCHA and the Google",
+      "recaptchaPrivacyLink": "Privacy Policy",
+      "recaptchaAnd": "and",
+      "recaptchaTermsLink": "Terms of Service",
+      "recaptchaSuffix": "apply."
     }
   }
 }

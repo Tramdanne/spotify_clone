@@ -90,13 +90,41 @@ type RegisterMessages = {
 };
 
 type LoginMessages = {
-  title: string;
-  description: string;
+  introTitle: string;
+  introSubtitle: string;
   emailLabel: string;
+  emailPlaceholder: string;
+  introNext: string;
+  introOr: string;
+  introPhone: string;
+  introGoogle: string;
+  introFacebook: string;
+  introRegisterPrompt: string;
+  introRegisterLink: string;
+  otpTitlePrefix: string;
+  otpTitleSuffix: string;
+  otpResend: string;
+  otpSubmit: string;
+  otpPasswordLink: string;
+  passwordTitle: string;
+  passwordDescription: string;
+  passwordEmailLabel: string;
   passwordLabel: string;
-  submit: string;
-  registerPrompt: string;
-  registerLink: string;
+  passwordPlaceholder: string;
+  passwordSubmit: string;
+  passwordlessLink: string;
+  errors: {
+    emailRequired: string;
+    emailInvalid: string;
+    otpRequired: string;
+    otpInvalid: string;
+    passwordRequired: string;
+  };
+  recaptchaPrefix: string;
+  recaptchaPrivacyLink: string;
+  recaptchaAnd: string;
+  recaptchaTermsLink: string;
+  recaptchaSuffix: string;
 };
 
 type AuthMessages = {
