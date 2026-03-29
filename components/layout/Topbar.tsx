@@ -46,7 +46,7 @@ export function Topbar({ locale, messages }: TopbarProps) {
             <Home className="size-5" />
           </Button>
 
-          <div className="flex min-w-[220px] flex-1 items-center gap-3 rounded-full border border-white/8 bg-white/8 px-3 py-1.5">
+          <div className="flex min-w-0 flex-1 items-center gap-3 rounded-full border border-white/8 bg-white/8 px-3 py-1.5">
             <Search className="size-5 shrink-0 text-zinc-400" />
             <Input
               aria-label={messages.searchAriaLabel}
@@ -88,7 +88,7 @@ export function Topbar({ locale, messages }: TopbarProps) {
           </Link>
 
           <Link
-            href={`/${locale}/auth/register`}
+            href={`/${locale}/register`}
             className="px-2 text-sm font-semibold text-zinc-300 transition hover:text-white md:px-4"
           >
             {messages.signUp}
@@ -98,7 +98,7 @@ export function Topbar({ locale, messages }: TopbarProps) {
             asChild
             className="h-12 rounded-full bg-white px-7 text-base font-bold text-black hover:bg-white/90"
           >
-            <Link href={`/${locale}/auth/login`}>{messages.logIn}</Link>
+            <Link href={`/${locale}/login`}>{messages.logIn}</Link>
           </Button>
         </div>
       </div>
