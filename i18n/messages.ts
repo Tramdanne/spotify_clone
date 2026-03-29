@@ -31,6 +31,79 @@ type ShellMessages = {
   promos: readonly PromoMessage[];
 };
 
+type RegisterMessages = {
+  introTitle: string;
+  introSubtitle: string;
+  emailLabel: string;
+  emailPlaceholder: string;
+  introNext: string;
+  introOr: string;
+  introPhone: string;
+  introGoogle: string;
+  introApple: string;
+  passwordTitle: string;
+  passwordLabel: string;
+  passwordPlaceholder: string;
+  passwordHintTitle: string;
+  passwordHints: readonly string[];
+  continue: string;
+  back: string;
+  showPassword: string;
+  hidePassword: string;
+  profileTitle: string;
+  nameLabel: string;
+  namePlaceholder: string;
+  nameHint: string;
+  birthLabel: string;
+  birthHint: string;
+  dayPlaceholder: string;
+  monthPlaceholder: string;
+  yearPlaceholder: string;
+  genderLabel: string;
+  genderHint: string;
+  genderOptions: {
+    male: string;
+    female: string;
+    nonBinary: string;
+    other: string;
+    preferNotSay: string;
+  };
+  termsTitle: string;
+  marketingOptOutLabel: string;
+  shareDataLabel: string;
+  termsParagraphOne: string;
+  termsParagraphTwo: string;
+  termsParagraphThree: string;
+  termsLink: string;
+  privacyLink: string;
+  submit: string;
+  footerLoginPrompt: string;
+  footerLoginLink: string;
+  recaptchaPrefix: string;
+  recaptchaPrivacyLink: string;
+  recaptchaAnd: string;
+  recaptchaTermsLink: string;
+  recaptchaSuffix: string;
+  successTitle: string;
+  successDescription: string;
+  successButton: string;
+};
+
+type LoginMessages = {
+  title: string;
+  description: string;
+  emailLabel: string;
+  passwordLabel: string;
+  submit: string;
+  registerPrompt: string;
+  registerLink: string;
+};
+
+type AuthMessages = {
+  register: RegisterMessages;
+  login: LoginMessages;
+};
+
 export type Messages = {
   heading: string;
   description: string;
@@ -38,6 +111,7 @@ export type Messages = {
   docs: string;
   switchLanguage: string;
   shell: ShellMessages;
+  auth: AuthMessages;
 };
 
 const messages = {
