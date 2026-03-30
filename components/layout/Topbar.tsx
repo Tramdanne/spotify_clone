@@ -101,19 +101,23 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
               asChild
               className="h-11 rounded-full bg-white px-5 text-sm font-bold text-black hover:bg-white/90"
             >
-              <Link href={actions.installApp.href}>{actions.installApp.label}</Link>
+              <Link href={actions.installApp.href}>
+                {actions.installApp.label}
+              </Link>
             </Button>
             <Button
               asChild
               variant="ghost"
               className="h-11 rounded-full px-5 text-sm font-bold text-zinc-200 hover:bg-white/10 hover:text-white"
             >
-              <Link href={`/${locale}/auth/register`}>{actions.signUp.label}</Link>
+              <Link href={`/${locale}/auth/register`}>
+                {actions.signUp.label}
+              </Link>
             </Button>
             <Button
               asChild
               variant="ghost"
-              className="h-11 rounded-full px-5 text-sm font-bold text-zinc-200 hover:bg-white/10 hover:text-white"
+              className="h-11 rounded-full px-5 bg-white text-sm font-bold text-black hover:bg-white/10 hover:text-white"
             >
               <Link href={`/${locale}/auth/login`}>{actions.logIn.label}</Link>
             </Button>

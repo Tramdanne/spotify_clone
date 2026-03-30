@@ -63,26 +63,33 @@ export function RegisterStepPassword({
             onClick={onToggleShowPassword}
             aria-label={showPassword ? hidePasswordLabel : showPasswordLabel}
           >
-            {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+            {showPassword ? (
+              <EyeOff className="size-4" />
+            ) : (
+              <Eye className="size-4" />
+            )}
           </Button>
         </div>
-        {passwordError ? <p className="text-sm text-red-400">{passwordError}</p> : null}
+        {passwordError ? (
+          <p className="text-sm text-red-400">{passwordError}</p>
+        ) : null}
       </div>
 
       <div className="space-y-3 text-sm text-white">
         <p className="font-semibold">{passwordHintTitle}</p>
         <ul className="space-y-2 text-zinc-300">
           {passwordRequirements.map((requirement, index) => (
-            <li key={`${requirement.label}-${index}`} className="flex items-start gap-2">
+            <li
+              key={`${requirement.label}-${index}`}
+              className="flex items-start gap-2"
+            >
               <span
                 className={`mt-1.5 size-2.5 rounded-full ${
                   requirement.met ? "bg-[#1ed760]" : "bg-white/50"
                 }`}
               />
               <span
-                className={
-                  requirement.met ? "text-white" : "text-zinc-300"
-                }
+                className={requirement.met ? "text-white" : "text-zinc-300"}
               >
                 {requirement.label}
               </span>
@@ -92,14 +99,6 @@ export function RegisterStepPassword({
       </div>
 
       <div className="flex gap-3">
-        <Button
-          type="button"
-          variant="outline"
-          className="h-12 flex-1 rounded-full border-white/16 bg-transparent text-base font-semibold text-white hover:bg-white/8"
-          onClick={onBack}
-        >
-          {backLabel}
-        </Button>
         <Button
           type="button"
           onClick={onNext}

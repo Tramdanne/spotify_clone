@@ -24,14 +24,14 @@ export function Sidebar({
   onToggleCollapse,
   variant,
 }: SidebarProps) {
-  const collapsed = variant === "main" ? isCollapsed ?? false : false;
+  const collapsed = variant === "main" ? (isCollapsed ?? false) : false;
   const canToggleCollapse = variant === "main" && onToggleCollapse;
 
   return (
     <aside
       className={[
         "scrollbar-hidden h-full min-h-0 overflow-y-auto overflow-x-hidden rounded-[28px] bg-[#121212] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.34)] transition-[width] duration-300",
-        variant === "main" ? getSidebarWidthClass(collapsed) : "w-[400px]",
+        variant === "main" ? getSidebarWidthClass(collapsed) : "w-100",
       ].join(" ")}
     >
       <div className="flex items-center justify-between gap-3 px-2 py-2">

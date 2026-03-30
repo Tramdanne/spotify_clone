@@ -9,7 +9,11 @@ import { LoginStepEmail } from "@/components/auth/login/LoginStepEmail";
 import { LoginStepOtp } from "@/components/auth/login/LoginStepOtp";
 import { LoginStepPassword } from "@/components/auth/login/LoginStepPassword";
 import { INITIAL_LOGIN_FORM } from "@/lib/auth/login/constants";
-import { buildLoginProviders, getPreviousLoginStage, maskEmailForLogin } from "@/lib/auth/login/flow";
+import {
+  buildLoginProviders,
+  getPreviousLoginStage,
+  maskEmailForLogin,
+} from "@/lib/auth/login/flow";
 import { getLoginErrorsForStage } from "@/lib/auth/login/validators";
 import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/messages";
@@ -60,6 +64,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
 
   const handleIntroNext = () => {
     const nextErrors = getLoginErrorsForStage("intro", form, messages.errors);
+    // CONSOLE.LOG("nextErrors", nextErrors);
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -67,6 +72,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
     }
 
     setStage("otp");
+    // debugger;: note lấy debugger
   };
 
   const handleOtpSubmit = () => {
@@ -81,7 +87,11 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
   };
 
   const handlePasswordSubmit = () => {
-    const nextErrors = getLoginErrorsForStage("password", form, messages.errors);
+    const nextErrors = getLoginErrorsForStage(
+      "password",
+      form,
+      messages.errors,
+    );
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -97,7 +107,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-[440px] min-w-0 flex-col justify-center">
+    <div className="mx-auto flex w-full max-w-120 min-w-0 flex-col justify-center">
       <div className="space-y-8">
         <LoginHeader
           stage={stage}
