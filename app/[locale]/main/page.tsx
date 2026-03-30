@@ -4,11 +4,11 @@ import { AppShell } from "@/components/layout/AppShell";
 import { isValidLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n/messages";
 
-type LocaleHomePageProps = {
+type MainPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
+export default async function MainPage({ params }: MainPageProps) {
   const { locale } = await params;
 
   if (!isValidLocale(locale)) {
@@ -17,5 +17,5 @@ export default async function LocaleHomePage({ params }: LocaleHomePageProps) {
 
   const messages = getMessages(locale);
 
-  return <AppShell locale={locale} messages={messages.shell} variant="guest" />;
+  return <AppShell locale={locale} messages={messages.shell} variant="main" />;
 }
