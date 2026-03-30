@@ -1,9 +1,8 @@
+import Link from "next/link";
 import Image from "next/image";
-import { Play } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
 
 type AlbumCardProps = {
+  href: string;
   title: string;
   subtitle: string;
   label: string;
@@ -11,13 +10,17 @@ type AlbumCardProps = {
 };
 
 export function AlbumCard({
+  href,
   title,
   subtitle,
   label,
   imageUrl,
 }: AlbumCardProps) {
   return (
-    <article className="group w-55 shrink-0 rounded-3xl p-3 transition hover:bg-white/6 md:w-60">
+    <Link
+      href={href}
+      className="group block w-55 shrink-0 rounded-3xl p-3 transition hover:bg-white/6 md:w-60"
+    >
       <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#1b1b1b]">
         <Image
           src={imageUrl}
@@ -32,12 +35,9 @@ export function AlbumCard({
             {label}
           </p>
         </div>
-        <Button
-          size="icon"
-          className="absolute right-3 bottom-3 size-11 rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100 hover:bg-[#3be477]"
-        >
-          <Play className="size-5 fill-current" />
-        </Button>
+        <div className="absolute right-3 bottom-3 grid size-11 place-items-center rounded-full bg-[#1ed760] text-black opacity-0 shadow-lg transition group-hover:opacity-100">
+          <span className="block size-0 border-y-[8px] border-y-transparent border-l-[13px] border-l-black" />
+        </div>
       </div>
       <div className="space-y-1 px-1 pt-4">
         <h3 className="line-clamp-2 text-lg font-semibold text-white md:text-xl">
@@ -47,6 +47,6 @@ export function AlbumCard({
           {subtitle}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }
