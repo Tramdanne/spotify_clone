@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -9,9 +9,16 @@ import { cn } from "@/lib/utils";
 type HorizontalRailProps = {
   children: React.ReactNode;
   className?: string;
+  previousLabel: string;
+  nextLabel: string;
 };
 
-export function HorizontalRail({ children, className }: HorizontalRailProps) {
+export function HorizontalRail({
+  children,
+  className,
+  previousLabel,
+  nextLabel,
+}: HorizontalRailProps) {
   const viewportRef = useRef<HTMLDivElement | null>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -45,7 +52,10 @@ export function HorizontalRail({ children, className }: HorizontalRailProps) {
     if (!el) return;
 
     const amount = Math.round(el.clientWidth * 0.8);
-    el.scrollBy({ left: direction === "right" ? amount : -amount, behavior: "smooth" });
+    el.scrollBy({
+      left: direction === "right" ? amount : -amount,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -63,7 +73,7 @@ export function HorizontalRail({ children, className }: HorizontalRailProps) {
           size="icon"
           className="absolute top-1/2 left-2 z-10 size-10 -translate-y-1/2 rounded-full bg-[#181818] text-white shadow-lg hover:bg-[#242424]"
           onClick={() => scrollByAmount("left")}
-          aria-label="Cuộn sang trái"
+          aria-label={previousLabel}
         >
           <ChevronLeft className="size-5" />
         </Button>
@@ -75,7 +85,7 @@ export function HorizontalRail({ children, className }: HorizontalRailProps) {
           size="icon"
           className="absolute top-1/2 right-2 z-10 size-10 -translate-y-1/2 rounded-full bg-[#181818] text-white shadow-lg hover:bg-[#242424]"
           onClick={() => scrollByAmount("right")}
-          aria-label="Cuộn sang phải"
+          aria-label={nextLabel}
         >
           <ChevronRight className="size-5" />
         </Button>

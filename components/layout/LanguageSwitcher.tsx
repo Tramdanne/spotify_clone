@@ -5,14 +5,20 @@ import Link from "next/link";
 import { ChevronDown, Languages } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import type { Messages } from "@/i18n/messages";
 
 type LanguageSwitcherProps = {
   locale: string;
   messages: Messages["shell"];
+  compact?: boolean;
 };
 
-export function LanguageSwitcher({ locale, messages }: LanguageSwitcherProps) {
+export function LanguageSwitcher({
+  locale,
+  messages,
+  compact = false,
+}: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
   const currentLabel = messages.languageChoices[locale as keyof typeof messages.languageChoices];
   const choices = (Object.entries(messages.languageChoices) as Array<[keyof typeof messages.languageChoices, string]>).filter(
@@ -24,14 +30,18 @@ export function LanguageSwitcher({ locale, messages }: LanguageSwitcherProps) {
       <Button
         type="button"
         variant="outline"
-        className="h-10 rounded-full border-white/16 bg-transparent px-4 text-sm font-semibold text-white hover:bg-white/8"
+        className={cn(
+          "rounded-full border-white/16 bg-transparent text-sm font-semibold text-white hover:bg-white/8",
+          compact ? "size-10 px-0" : "h-10 px-4",
+        )}
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
         aria-haspopup="menu"
+        aria-label={compact ? currentLabel : undefined}
       >
         <Languages className="size-4" />
-        {currentLabel}
-        <ChevronDown className="size-4 opacity-70" />
+        {compact ? null : currentLabel}
+        {compact ? null : <ChevronDown className="size-4 opacity-70" />}
       </Button>
 
       {open ? (

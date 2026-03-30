@@ -119,7 +119,7 @@ export function RegisterWizard({ locale, messages }: RegisterWizardProps) {
               asChild
               className="h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black hover:bg-[#30e36f]"
             >
-              <Link href={`/${locale}`}>
+              <Link href={`/${locale}/main`}>
                 {messages.successButton}
               </Link>
             </Button>
@@ -213,7 +213,7 @@ export function RegisterWizard({ locale, messages }: RegisterWizardProps) {
               <RegisterFooter
                 prompt={messages.footerLoginPrompt}
                 linkLabel={messages.footerLoginLink}
-                href={`/${locale}/login`}
+                href={`/${locale}/auth/login`}
               />
             ) : null}
 

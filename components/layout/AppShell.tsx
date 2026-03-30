@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import { ArtistCard } from "@/components/album/ArtistCard";
 import { AlbumCard } from "@/components/album/AlbumCard";
 import { SectionHeader } from "@/components/common/SectionHeader";
@@ -7,28 +11,35 @@ import { Topbar } from "@/components/layout/Topbar";
 import { TopNavTabs } from "@/components/layout/TopNavTabs";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Messages } from "@/i18n/messages";
-import { getBrowseTracks, getPopularArtists } from "@/lib/data/albums";
+import { homePopularArtists, homeTrendingTracks } from "@/lib/data/home";
 
 type AppShellProps = {
   locale: string;
   messages: Messages["shell"];
+  variant: "guest" | "main";
 };
 
-export function AppShell({ locale, messages }: AppShellProps) {
-  const trendingSongs = getBrowseTracks();
-  const popularArtists = getPopularArtists();
+export function AppShell({ locale, messages, variant }: AppShellProps) {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const isMain = variant === "main";
 
   return (
     <div className="dark h-screen overflow-hidden bg-black text-white">
-      <div className="mx-auto flex h-full max-w-480 flex-col">
-        <Topbar locale={locale} messages={messages} />
+      <div className="flex h-full flex-col gap-2 p-3">
+        <Topbar locale={locale} messages={messages} variant={variant} />
 
-        <div className="grid min-h-0 flex-1 gap-2 px-3 pb-3 md:px-4 lg:grid-cols-[360px_minmax(0,1fr)]">
-          <div className="min-h-0 overflow-hidden">
-            <Sidebar locale={locale} messages={messages} />
-          </div>
+        <div className="flex min-h-0 flex-1 gap-2">
+          <Sidebar
+            locale={locale}
+            messages={messages}
+            variant={variant}
+            isCollapsed={isMain ? isCollapsed : false}
+            onToggleCollapse={
+              isMain ? () => setIsCollapsed((value) => !value) : undefined
+            }
+          />
 
-          <Card className="h-full min-h-0 overflow-hidden border-white/6 bg-[#121212]">
+          <Card className="min-h-0 flex-1 overflow-hidden border-white/6 bg-[#121212]">
             <CardContent className="scrollbar-hidden flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden p-4 md:p-6">
               <div className="space-y-8">
                 <div className="-mx-4 -mt-4 bg-[#121212]/95 px-4 pt-4 pb-3 backdrop-blur md:-mx-6 md:-mt-6 md:px-6 md:pt-6">
@@ -41,11 +52,14 @@ export function AppShell({ locale, messages }: AppShellProps) {
                 <section className="space-y-5">
                   <SectionHeader
                     title={messages.trendingTitle}
-                    href={`/${locale}/trending`}
+                    href="#"
                     ctaLabel={messages.showAll}
                   />
-                  <HorizontalRail>
-                    {trendingSongs.map((song) => (
+                  <HorizontalRail
+                    previousLabel={messages.scrollLeftAriaLabel}
+                    nextLabel={messages.scrollRightAriaLabel}
+                  >
+                    {homeTrendingTracks.map((song) => (
                       <AlbumCard
                         key={song.id}
                         title={song.title}
@@ -60,11 +74,14 @@ export function AppShell({ locale, messages }: AppShellProps) {
                 <section className="space-y-5 pt-3">
                   <SectionHeader
                     title={messages.artistsTitle}
-                    href={`/${locale}/artists`}
+                    href="#"
                     ctaLabel={messages.showAll}
                   />
-                  <HorizontalRail>
-                    {popularArtists.map((artist) => (
+                  <HorizontalRail
+                    previousLabel={messages.scrollLeftAriaLabel}
+                    nextLabel={messages.scrollRightAriaLabel}
+                  >
+                    {homePopularArtists.map((artist) => (
                       <ArtistCard
                         key={artist.id}
                         name={artist.stageName}
