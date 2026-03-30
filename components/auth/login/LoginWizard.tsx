@@ -77,7 +77,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
       return;
     }
 
-    router.replace(`/${locale}`);
+    router.replace(`/${locale}/main`);
   };
 
   const handlePasswordSubmit = () => {
@@ -88,7 +88,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
       return;
     }
 
-    router.replace(`/${locale}`);
+    router.replace(`/${locale}/main`);
   };
 
   const handleBack = () => {
@@ -171,7 +171,7 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
             <LoginFooter
               prompt={messages.introRegisterPrompt}
               linkLabel={messages.introRegisterLink}
-              href={`/${locale}/register`}
+              href={`/${locale}/auth/register`}
             />
           ) : null}
 

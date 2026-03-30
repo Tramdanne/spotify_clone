@@ -13,6 +13,14 @@ type ShellMessages = {
   topbarAriaLabel: string;
   searchPlaceholder: string;
   searchAriaLabel: string;
+  homeButtonAriaLabel: string;
+  notificationsAriaLabel: string;
+  friendsAriaLabel: string;
+  profileAriaLabel: string;
+  sidebarCollapseAriaLabel: string;
+  sidebarExpandAriaLabel: string;
+  scrollLeftAriaLabel: string;
+  scrollRightAriaLabel: string;
   premium: string;
   support: string;
   download: string;
