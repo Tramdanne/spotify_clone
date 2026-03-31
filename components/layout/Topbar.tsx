@@ -101,19 +101,23 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
               asChild
               className="h-11 rounded-full bg-white px-5 text-sm font-bold text-black hover:bg-white/90"
             >
-              <Link href={actions.installApp.href}>{actions.installApp.label}</Link>
+              <Link href={actions.installApp.href}>
+                {actions.installApp.label}
+              </Link>
             </Button>
             <Button
               asChild
               variant="ghost"
               className="h-11 rounded-full px-5 text-sm font-bold text-zinc-200 hover:bg-white/10 hover:text-white"
             >
-              <Link href={`/${locale}/auth/register`}>{actions.signUp.label}</Link>
+              <Link href={`/${locale}/auth/register`}>
+                {actions.signUp.label}
+              </Link>
             </Button>
             <Button
               asChild
               variant="ghost"
-              className="h-11 rounded-full px-5 text-sm font-bold text-zinc-200 hover:bg-white/10 hover:text-white"
+              className="h-11 rounded-full px-5 bg-white text-sm font-bold text-black hover:bg-white/10 hover:text-white"
             >
               <Link href={`/${locale}/auth/login`}>{actions.logIn.label}</Link>
             </Button>
@@ -158,9 +162,18 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
             </Button>
 
             <Avatar className="size-11 ring-4 ring-[#2b1f18]">
-              <AvatarFallback className="bg-[#7b4d2a] text-sm font-black text-black">
-                T
-              </AvatarFallback>
+              <Link
+                href="/profile"
+                className="size-full rounded-full transition hover:scale-[1.02]"
+              >
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SGvshARHJ5GYSH_Kig8-cYNw5rO3nWn7mA&s"
+                  alt="avatar"
+                  width={40}
+                  height={40}
+                  className="size-full rounded-full object-cover"
+                />
+              </Link>
             </Avatar>
           </div>
         )}

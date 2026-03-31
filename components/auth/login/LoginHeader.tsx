@@ -13,13 +13,24 @@ type LoginHeaderProps = {
   onBack?: () => void;
 };
 
-export function LoginHeader({ stage, title, subtitle, onBack }: LoginHeaderProps) {
+export function LoginHeader({
+  stage,
+  title,
+  subtitle,
+  onBack,
+}: LoginHeaderProps) {
   const isIntro = stage === "intro";
   const hasText = Boolean(title || subtitle);
 
   return (
     <header className={isIntro ? "space-y-8 text-center" : "space-y-6"}>
-      <div className={isIntro ? "flex justify-center" : "flex justify-center lg:justify-start"}>
+      <div
+        className={
+          isIntro
+            ? "flex justify-center"
+            : "flex justify-center lg:justify-start"
+        }
+      >
         <Image
           src="/images/logo.png"
           alt="Spotify"
@@ -37,7 +48,7 @@ export function LoginHeader({ stage, title, subtitle, onBack }: LoginHeaderProps
               {title}
             </h1>
             {subtitle ? (
-              <p className="mx-auto max-w-[26rem] text-sm leading-6 text-zinc-400 md:text-base">
+              <p className="mx-auto max-w-104 text-sm leading-6 text-zinc-400 md:text-base">
                 {subtitle}
               </p>
             ) : null}
@@ -64,7 +75,7 @@ export function LoginHeader({ stage, title, subtitle, onBack }: LoginHeaderProps
                 {title}
               </h1>
               {subtitle ? (
-                <p className="max-w-[30rem] text-sm leading-6 text-zinc-400 md:text-base">
+                <p className="max-w-120 text-sm leading-6 text-zinc-400 md:text-base">
                   {subtitle}
                 </p>
               ) : null}

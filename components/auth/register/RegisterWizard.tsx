@@ -21,17 +21,117 @@ import {
 } from "@/lib/auth/register/flow";
 import { INITIAL_REGISTER_FORM } from "@/lib/auth/register/constants";
 import {
-  getPasswordRequirementStates,
-  getRegisterErrorsForStage,
-} from "@/lib/auth/register/validators-safe";
+  registerEmailSchema,
+  registerPasswordSchema,
+  registerProfileSchema,
+  registerConsentSchema,
+} from "@/lib/auth/register/schemas";
+import { extractErrors } from "@/lib/auth/validation-utils";
 import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/messages";
-import type { RegisterFormState, RegisterStage } from "@/types/auth-register";
+import type {
+  RegisterFieldErrors,
+  RegisterFormState,
+  RegisterStage,
+} from "@/types/auth-register";
 
 type RegisterWizardProps = {
   locale: Locale;
   messages: Messages["auth"]["register"];
 };
+
+const LETTER_PATTERN = /\p{L}/u;
+const NUMBER_OR_SPECIAL_PATTERN = /[\d#?!&@$%^*()_+\-=\[\]{};':"\\|,.<>/?`~]/;
+
+function validateEmailStep(values: RegisterFormState): RegisterFieldErrors {
+  const result = registerEmailSchema.safeParse({ email: values.email });
+
+  return extractErrors(result);
+}
+
+function validatePasswordStep(values: RegisterFormState): RegisterFieldErrors {
+  const result = registerPasswordSchema.safeParse({
+    password: values.password,
+  });
+
+  return extractErrors(result);
+}
+
+function validateProfileStep(values: RegisterFormState): RegisterFieldErrors {
+  const result = registerProfileSchema.safeParse({
+    name: values.name,
+    day: values.birthDay,
+    month: values.birthMonth,
+    year: values.birthYear,
+    gender: values.gender,
+  });
+
+  const errors = extractErrors(result);
+
+  if (errors.day) {
+    errors.birthDay = errors.day;
+    delete errors.day;
+  }
+  if (errors.month) {
+    errors.birthMonth = errors.month;
+    delete errors.month;
+  }
+  if (errors.year) {
+    errors.birthYear = errors.year;
+    delete errors.year;
+  }
+
+  return errors;
+}
+
+function validateConsentStep(values: RegisterFormState): RegisterFieldErrors {
+  const result = registerConsentSchema.safeParse({
+    marketingOptOut: values.marketingOptOut,
+    shareData: values.shareData,
+  });
+
+  return extractErrors(result);
+}
+
+function getRegisterErrorsForStage(
+  stage: RegisterStage,
+  values: RegisterFormState,
+): RegisterFieldErrors {
+  switch (stage) {
+    case "intro":
+      return validateEmailStep(values);
+    case 1:
+      return validatePasswordStep(values);
+    case 2:
+      return validateProfileStep(values);
+    case 3:
+      return validateConsentStep(values);
+    default:
+      return {};
+  }
+}
+
+function getPasswordRequirementStates(
+  value: string,
+  labels: readonly string[],
+) {
+  const trimmed = value.trim();
+
+  return [
+    {
+      label: labels[0] ?? "",
+      met: LETTER_PATTERN.test(trimmed),
+    },
+    {
+      label: labels[1] ?? "",
+      met: NUMBER_OR_SPECIAL_PATTERN.test(trimmed),
+    },
+    {
+      label: labels[2] ?? "",
+      met: trimmed.length >= 10,
+    },
+  ];
+}
 
 export function RegisterWizard({ locale, messages }: RegisterWizardProps) {
   const [stage, setStage] = useState<RegisterStage>("intro");
@@ -80,7 +180,7 @@ export function RegisterWizard({ locale, messages }: RegisterWizardProps) {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-[440px] min-w-0 flex-col justify-center">
+    <div className="mx-auto flex w-full max-w-110 min-w-0 flex-col justify-center">
       <div className="space-y-8">
         <RegisterHeader
           stage={stage}
@@ -119,9 +219,7 @@ export function RegisterWizard({ locale, messages }: RegisterWizardProps) {
               asChild
               className="h-12 w-full rounded-full bg-[#1ed760] text-base font-bold text-black hover:bg-[#30e36f]"
             >
-              <Link href={`/${locale}/main`}>
-                {messages.successButton}
-              </Link>
+              <Link href={`/${locale}/main`}>{messages.successButton}</Link>
             </Button>
           </section>
         ) : stage === "intro" ? (
