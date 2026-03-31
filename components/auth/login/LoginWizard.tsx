@@ -10,19 +10,93 @@ import { LoginStepOtp } from "@/components/auth/login/LoginStepOtp";
 import { LoginStepPassword } from "@/components/auth/login/LoginStepPassword";
 import { INITIAL_LOGIN_FORM } from "@/lib/auth/login/constants";
 import {
+  loginEmailSchema,
+  loginOtpSchema,
+  loginPasswordSchema,
+} from "@/lib/auth/login/schemas";
+import {
   buildLoginProviders,
   getPreviousLoginStage,
   maskEmailForLogin,
 } from "@/lib/auth/login/flow";
-import { getLoginErrorsForStage } from "@/lib/auth/login/validators";
+import { extractErrors } from "@/lib/auth/validation-utils";
 import type { Locale } from "@/i18n/config";
 import type { Messages } from "@/i18n/messages";
 import type { LoginFormState, LoginStage } from "@/types/auth-login";
-
 type LoginWizardProps = {
   locale: Locale;
   messages: Messages["auth"]["login"];
 };
+
+type LoginValidationTexts = {
+  emailRequired: string;
+  emailInvalid: string;
+  otpRequired: string;
+  otpInvalid: string;
+  passwordRequired: string;
+};
+
+function validateLoginIntro(
+  values: LoginFormState,
+  texts: Pick<LoginValidationTexts, "emailRequired" | "emailInvalid">,
+) {
+  const result = loginEmailSchema.safeParse({ email: values.email });
+
+  return extractErrors(result, {
+    email: !values.email.trim() ? texts.emailRequired : texts.emailInvalid,
+  });
+}
+
+function validateLoginOtp(
+  values: LoginFormState,
+  texts: Pick<LoginValidationTexts, "otpRequired" | "otpInvalid">,
+) {
+  const result = loginOtpSchema.safeParse({ otpDigits: values.otpDigits });
+
+  const errors = extractErrors(result);
+  if (errors.otpDigits) {
+    errors.otpDigits = values.otpDigits.join("").trim()
+      ? texts.otpInvalid
+      : texts.otpRequired;
+  }
+
+  return errors;
+}
+
+function validateLoginPassword(
+  values: LoginFormState,
+  texts: Pick<
+    LoginValidationTexts,
+    "emailRequired" | "emailInvalid" | "passwordRequired"
+  >,
+) {
+  const result = loginPasswordSchema.safeParse({
+    email: values.email,
+    password: values.password,
+  });
+
+  return extractErrors(result, {
+    email: !values.email.trim() ? texts.emailRequired : texts.emailInvalid,
+    password: texts.passwordRequired,
+  });
+}
+
+function getLoginErrorsForStage(
+  stage: LoginStage,
+  values: LoginFormState,
+  texts: LoginValidationTexts,
+) {
+  switch (stage) {
+    case "intro":
+      return validateLoginIntro(values, texts);
+    case "otp":
+      return validateLoginOtp(values, texts);
+    case "password":
+      return validateLoginPassword(values, texts);
+    default:
+      return {};
+  }
+}
 
 export function LoginWizard({ locale, messages }: LoginWizardProps) {
   const router = useRouter();
@@ -64,7 +138,6 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
 
   const handleIntroNext = () => {
     const nextErrors = getLoginErrorsForStage("intro", form, messages.errors);
-    // CONSOLE.LOG("nextErrors", nextErrors);
     setErrors(nextErrors);
 
     if (Object.keys(nextErrors).length > 0) {
@@ -72,7 +145,6 @@ export function LoginWizard({ locale, messages }: LoginWizardProps) {
     }
 
     setStage("otp");
-    // debugger;: note lấy debugger
   };
 
   const handleOtpSubmit = () => {

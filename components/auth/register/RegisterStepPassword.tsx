@@ -40,7 +40,6 @@ export function RegisterStepPassword({
   onToggleShowPassword,
   onPasswordChange,
   onNext,
-  onBack,
 }: RegisterStepPasswordProps) {
   return (
     <section className="space-y-6">

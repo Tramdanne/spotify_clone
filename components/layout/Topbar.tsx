@@ -162,9 +162,18 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
             </Button>
 
             <Avatar className="size-11 ring-4 ring-[#2b1f18]">
-              <AvatarFallback className="bg-[#7b4d2a] text-sm font-black text-black">
-                T
-              </AvatarFallback>
+              <Link
+                href="/profile"
+                className="size-full rounded-full transition hover:scale-[1.02]"
+              >
+                <Image
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SGvshARHJ5GYSH_Kig8-cYNw5rO3nWn7mA&s"
+                  alt="avatar"
+                  width={40}
+                  height={40}
+                  className="size-full rounded-full object-cover"
+                />
+              </Link>
             </Avatar>
           </div>
         )}
