@@ -17,6 +17,8 @@ type ShellMessages = {
   notificationsAriaLabel: string;
   friendsAriaLabel: string;
   profileAriaLabel: string;
+  profile: string;
+  logout: string;
   sidebarCollapseAriaLabel: string;
   sidebarExpandAriaLabel: string;
   scrollLeftAriaLabel: string;

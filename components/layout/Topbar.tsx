@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,10 +11,10 @@ import {
   Users,
 } from "lucide-react";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { UserMenu } from "@/components/layout/UserMenu";
 import {
   getAuthenticatedTopbarActions,
   getGuestTopbarActions,
@@ -32,7 +34,7 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
       : getAuthenticatedTopbarActions(messages);
 
   return (
-    <header className="rounded-[28px] bg-black/90 px-3 py-3 backdrop-blur md:px-5">
+    <header className="relative z-50 rounded-[28px] bg-black/90 px-3 py-3 backdrop-blur md:px-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
           <Link
@@ -161,20 +163,13 @@ export function Topbar({ locale, messages, variant }: TopbarProps) {
               <Users className="size-4" />
             </Button>
 
-            <Avatar className="size-11 ring-4 ring-[#2b1f18]">
-              <Link
-                href="/profile"
-                className="size-full rounded-full transition hover:scale-[1.02]"
-              >
-                <Image
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SGvshARHJ5GYSH_Kig8-cYNw5rO3nWn7mA&s"
-                  alt="avatar"
-                  width={40}
-                  height={40}
-                  className="size-full rounded-full object-cover"
-                />
-              </Link>
-            </Avatar>
+            <UserMenu
+              locale={locale}
+              messages={messages}
+              profileHref={`/${locale}/profile`}
+              displayName="Spotify User"
+              avatarSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6SGvshARHJ5GYSH_Kig8-cYNw5rO3nWn7mA&s"
+            />
           </div>
         )}
       </div>

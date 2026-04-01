@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { ChevronLeft, ChevronRight, LibraryBig, Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -129,11 +130,13 @@ export function Sidebar({
       ) : null}
 
       <div className="mt-8 px-2">
-        <LanguageSwitcher
-          locale={locale}
-          messages={messages}
-          compact={collapsed}
-        />
+        <Suspense fallback={null}>
+          <LanguageSwitcher
+            locale={locale}
+            messages={messages}
+            compact={collapsed}
+          />
+        </Suspense>
       </div>
     </aside>
   );
