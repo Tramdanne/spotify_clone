@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronDown, Languages } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { locales } from "@/i18n/config";
 import type { Messages } from "@/i18n/messages";
 
 type LanguageSwitcherProps = {
@@ -20,10 +22,37 @@ export function LanguageSwitcher({
   compact = false,
 }: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
-  const currentLabel = messages.languageChoices[locale as keyof typeof messages.languageChoices];
-  const choices = (Object.entries(messages.languageChoices) as Array<[keyof typeof messages.languageChoices, string]>).filter(
-    ([value]) => value !== locale,
-  );
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentLabel =
+    messages.languageChoices[locale as keyof typeof messages.languageChoices];
+  const choices = (
+    Object.entries(messages.languageChoices) as Array<
+      [keyof typeof messages.languageChoices, string]
+    >
+  ).filter(([value]) => value !== locale);
+  const queryString = searchParams.toString();
+
+  //Keep the current route when switching language so detail pages stay on the same slug.
+  const getLocaleHref = (nextLocale: string) => {
+    if (!pathname) {
+      return `/${nextLocale}`;
+    }
+
+    const segments = pathname.split("/").filter(Boolean);
+    const hasLocalePrefix =
+      segments.length > 0 &&
+      locales.includes(segments[0] as (typeof locales)[number]);
+
+    if (hasLocalePrefix) {
+      segments[0] = nextLocale;
+    } else {
+      segments.unshift(nextLocale);
+    }
+
+    const nextPathname = `/${segments.join("/")}`;
+    return queryString ? `${nextPathname}?${queryString}` : nextPathname;
+  };
 
   return (
     <div className="relative">
@@ -52,7 +81,7 @@ export function LanguageSwitcher({
           {choices.map(([value, label]) => (
             <Link
               key={value}
-              href={`/${value}`}
+              href={getLocaleHref(value)}
               role="menuitem"
               className="block rounded-xl px-4 py-3 text-sm font-medium text-zinc-200 transition hover:bg-white/10 hover:text-white"
               onClick={() => setOpen(false)}
