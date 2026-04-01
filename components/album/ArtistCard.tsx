@@ -1,14 +1,20 @@
+import Link from "next/link";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 type ArtistCardProps = {
+  href: string;
   name: string;
   subtitle: string;
   avatarSrc: string;
 };
 
-export function ArtistCard({ name, subtitle, avatarSrc }: ArtistCardProps) {
+export function ArtistCard({ href, name, subtitle, avatarSrc }: ArtistCardProps) {
   return (
-    <article className="group w-55 shrink-0 rounded-3xl p-3 transition hover:bg-white/6 md:w-60">
+    <Link
+      href={href}
+      className="group block w-55 shrink-0 rounded-3xl p-3 transition hover:bg-white/6 md:w-60"
+    >
       <Avatar className="mx-auto aspect-square size-full max-h-55 max-w-55 rounded-full ring-1 ring-white/10">
         <AvatarImage src={avatarSrc} alt={name} />
         <AvatarFallback className="bg-white/10" />
@@ -19,6 +25,6 @@ export function ArtistCard({ name, subtitle, avatarSrc }: ArtistCardProps) {
           {subtitle}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }

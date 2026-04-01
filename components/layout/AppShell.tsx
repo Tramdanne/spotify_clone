@@ -68,6 +68,7 @@ export function AppShell({ locale, messages, variant, children }: AppShellProps)
             {homePopularArtists.map((artist) => (
               <ArtistCard
                 key={artist.id}
+                href={`/${locale}/artist/${artist.id}`}
                 name={artist.stageName}
                 subtitle={artist.fullName}
                 avatarSrc={artist.imageUrl}

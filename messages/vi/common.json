@@ -60,6 +60,24 @@
       }
     ]
   },
+  "artist": {
+    "profileLabel": "Hồ sơ nghệ sĩ",
+    "subtitle": "Trang hồ sơ mẫu theo phong cách Spotify",
+    "play": "Phát",
+    "follow": "Theo dõi",
+    "following": "Đang theo dõi",
+    "shuffleAriaLabel": "Phát ngẫu nhiên",
+    "moreOptionsAriaLabel": "Tùy chọn khác",
+    "monthlyListeners": "Người nghe hằng tháng",
+    "followers": "Người theo dõi",
+    "genres": "Thể loại",
+    "title": "Bài hát",
+    "album": "Album",
+    "openAlbum": "Mở album",
+    "featuredAlbums": "Album nổi bật",
+    "relatedArtists": "Nghệ sĩ liên quan",
+    "playsSuffix": "lượt nghe"
+  },
   "auth": {
     "register": {
       "introTitle": "Đăng ký để bắt đầu nghe",
