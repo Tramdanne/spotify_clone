@@ -60,6 +60,24 @@
       }
     ]
   },
+  "artist": {
+    "profileLabel": "Artist Profile",
+    "subtitle": "Spotify style mock profile",
+    "play": "Play",
+    "follow": "Follow",
+    "following": "Following",
+    "shuffleAriaLabel": "Shuffle",
+    "moreOptionsAriaLabel": "More options",
+    "monthlyListeners": "Monthly listeners",
+    "followers": "Followers",
+    "genres": "Genres",
+    "title": "Title",
+    "album": "Album",
+    "openAlbum": "Open album",
+    "featuredAlbums": "Featured albums",
+    "relatedArtists": "Related artists",
+    "playsSuffix": "plays"
+  },
   "auth": {
     "register": {
       "introTitle": "Sign up to start listening",

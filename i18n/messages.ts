@@ -140,6 +140,25 @@ type AuthMessages = {
   login: LoginMessages;
 };
 
+type ArtistMessages = {
+  profileLabel: string;
+  subtitle: string;
+  play: string;
+  follow: string;
+  following: string;
+  shuffleAriaLabel: string;
+  moreOptionsAriaLabel: string;
+  monthlyListeners: string;
+  followers: string;
+  genres: string;
+  title: string;
+  album: string;
+  openAlbum: string;
+  featuredAlbums: string;
+  relatedArtists: string;
+  playsSuffix: string;
+};
+
 export type Messages = {
   heading: string;
   description: string;
@@ -147,6 +166,7 @@ export type Messages = {
   docs: string;
   switchLanguage: string;
   shell: ShellMessages;
+  artist: ArtistMessages;
   auth: AuthMessages;
 };
 
