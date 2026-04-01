@@ -82,7 +82,11 @@ export function AppShell({ locale, messages, variant, children }: AppShellProps)
   return (
     <div className="dark h-screen overflow-hidden bg-black text-white">
       <div className="flex h-full flex-col gap-2 p-3">
-        <Topbar locale={locale} messages={messages} variant={variant} />
+        <Topbar
+          locale={locale}
+          messages={messages}
+          variant={variant}
+        />
 
         <div className="flex min-h-0 flex-1 gap-2">
           <Sidebar
@@ -95,7 +99,7 @@ export function AppShell({ locale, messages, variant, children }: AppShellProps)
             }
           />
 
-          <Card className="min-h-0 flex-1 overflow-hidden border-white/6 bg-[#121212]">
+          <Card className="relative z-0 min-h-0 flex-1 overflow-hidden border-white/6 bg-[#121212]">
             <CardContent className="scrollbar-hidden flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden p-4 md:p-6">
               {content}
             </CardContent>
