@@ -1,4 +1,7 @@
-import { getDeezerChartAlbums, getDeezerChartArtists } from "@/lib/api/deezer";
+import {
+  getDeezerChartAlbums,
+  getDeezerChartArtists,
+} from "@/services/deezer";
 import type { ArtistProfile, BrowseTrack } from "@/types/home";
 
 function getAlbumImageUrl(album: {
