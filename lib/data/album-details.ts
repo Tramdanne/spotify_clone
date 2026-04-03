@@ -3,7 +3,7 @@ import {
   getDeezerAlbumTracks,
   getDeezerArtistAlbums,
   searchDeezerAlbums,
-} from "@/lib/api/deezer";
+} from "@/services/deezer";
 import type { AlbumDetail, AlbumTrack, RelatedAlbum } from "@/types/album";
 import type {
   DeezerAlbumResponse,

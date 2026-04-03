@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronDown, Languages } from "lucide-react";
@@ -22,6 +22,7 @@ export function LanguageSwitcher({
   compact = false,
 }: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentLabel =
@@ -31,11 +32,15 @@ export function LanguageSwitcher({
       [keyof typeof messages.languageChoices, string]
     >
   ).filter(([value]) => value !== locale);
-  const queryString = searchParams.toString();
+  const queryString = mounted ? searchParams.toString() : "";
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   //Keep the current route when switching language so detail pages stay on the same slug.
   const getLocaleHref = (nextLocale: string) => {
-    if (!pathname) {
+    if (!mounted || !pathname) {
       return `/${nextLocale}`;
     }
 
