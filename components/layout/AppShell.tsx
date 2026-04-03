@@ -13,16 +13,25 @@ import { TopNavTabs } from "@/components/layout/TopNavTabs";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Messages } from "@/i18n/messages";
 import { getAlbumRouteKey } from "@/lib/data/album-details";
-import { homePopularArtists, homeTrendingTracks } from "@/lib/data/home";
+import type { ArtistProfile, BrowseTrack } from "@/types/home";
 
 type AppShellProps = {
   locale: string;
   messages: Messages["shell"];
   variant: "guest" | "main";
+  trendingTracks?: BrowseTrack[];
+  popularArtists?: ArtistProfile[];
   children?: ReactNode;
 };
 
-export function AppShell({ locale, messages, variant, children }: AppShellProps) {
+export function AppShell({
+  locale,
+  messages,
+  variant,
+  trendingTracks = [],
+  popularArtists = [],
+  children,
+}: AppShellProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const isMain = variant === "main";
   const content =
@@ -42,13 +51,13 @@ export function AppShell({ locale, messages, variant, children }: AppShellProps)
             previousLabel={messages.scrollLeftAriaLabel}
             nextLabel={messages.scrollRightAriaLabel}
           >
-            {homeTrendingTracks.map((song) => (
+            {trendingTracks.map((song) => (
               <AlbumCard
                 key={song.id}
                 href={`/${locale}/album/${getAlbumRouteKey(song.detailSlug)}`}
                 title={song.title}
                 subtitle={song.artists.join(", ")}
-                label={song.artists[0]}
+                label={song.artists[0] || "Deezer"}
                 imageUrl={song.imageUrl}
               />
             ))}
@@ -65,7 +74,7 @@ export function AppShell({ locale, messages, variant, children }: AppShellProps)
             previousLabel={messages.scrollLeftAriaLabel}
             nextLabel={messages.scrollRightAriaLabel}
           >
-            {homePopularArtists.map((artist) => (
+            {popularArtists.map((artist) => (
               <ArtistCard
                 key={artist.id}
                 href={`/${locale}/artist/${artist.id}`}

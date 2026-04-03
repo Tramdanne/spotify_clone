@@ -17,7 +17,7 @@ export default async function AlbumPage({ params }: AlbumPageProps) {
     notFound();
   }
 
-  const album = getAlbumDetailByRouteKey(slug);
+  const album = await getAlbumDetailByRouteKey(slug);
 
   if (!album) {
     notFound();

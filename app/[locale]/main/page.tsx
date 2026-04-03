@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { AppShell } from "@/components/layout/AppShell";
 import { isValidLocale } from "@/i18n/config";
 import { getMessages } from "@/i18n/messages";
+import { getHomePageData } from "@/lib/data/home";
 
 type MainPageProps = {
   params: Promise<{ locale: string }>;
@@ -16,6 +17,15 @@ export default async function MainPage({ params }: MainPageProps) {
   }
 
   const messages = getMessages(locale);
+  const homeData = await getHomePageData();
 
-  return <AppShell locale={locale} messages={messages.shell} variant="main" />;
+  return (
+    <AppShell
+      locale={locale}
+      messages={messages.shell}
+      variant="main"
+      trendingTracks={homeData.trendingTracks}
+      popularArtists={homeData.popularArtists}
+    />
+  );
 }

@@ -1,8 +1,8 @@
-import { homePopularArtists } from "@/lib/data/home";
+import { popularArtists } from "@/lib/data/albums";
 import type { ArtistDetail } from "@/types/artist";
 
 function getArtistProfile(id: string) {
-  const artist = homePopularArtists.find((item) => item.id === id);
+  const artist = popularArtists.find((item) => item.id === id);
 
   if (!artist) {
     throw new Error(`Missing artist profile: ${id}`);
